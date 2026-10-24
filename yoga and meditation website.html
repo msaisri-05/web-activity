@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serenity Yoga & Meditation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #34483c;
+      background: #f8f8f0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #52745b;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h2 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 8px;
+    }
+
+    nav a:hover {
+      color: #e6d8b8;
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 90px 20px;
+      text-align: center;
+      background:
+        linear-gradient(#243b2b88, #243b2b88),
+        url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #d8b982;
+      color: #263a2d;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 55px 8%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #52745b;
+    }
+
+    .intro {
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px #0000000d;
+      padding-bottom: 22px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 10px 8px;
+      color: #52745b;
+    }
+
+    .card p {
+      padding: 0 15px;
+    }
+
+    .schedule {
+      background: #e9eee4;
+    }
+
+    table {
+      width: 100%;
+      max-width: 750px;
+      margin: 25px auto 0;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      padding: 14px;
+      border: 1px solid #d7dfd2;
+    }
+
+    th {
+      background: #52745b;
+      color: white;
+    }
+
+    .price {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 12px;
+    }
+
+    .join {
+      margin-top: 18px;
+    }
+
+    .contact {
+      background: #52745b;
+      color: white;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    footer {
+      background: #34483c;
+      color: white;
+      text-align: center;
+      padding: 18px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px;
+      }
+
+      section {
+        padding: 40px 5%;
+      }
+
+      .hero {
+        padding: 70px 15px;
+      }
+
+      table {
+        font-size: 13px;
+      }
+
+      th, td {
+        padding: 9px 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>🌿 Serenity Yoga</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#yoga">Yoga</a>
+      <a href="#teachers">Instructors</a>
+      <a href="#schedule">Classes</a>
+      <a href="#plans">Plans</a>
+      <a href="#articles">Wellness</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Find Your Inner Peace</h1>
+    <p>Breathe deeply, move mindfully, and live beautifully.</p>
+    <a href="#schedule" class="btn">Explore Classes</a>
+  </section>
+
+  <section id="yoga">
+    <h2>Yoga & Meditation</h2>
+    <p class="intro">Discover practices that nourish your mind and body.</p>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Yoga practice">
+        <h3>Mountain Pose</h3>
+        <p>Practice standing tall, improving posture and body awareness.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=600&q=80" alt="Yoga stretching">
+        <h3>Tree Pose</h3>
+        <p>Build balance, focus, and stability through mindful movement.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Meditation outdoors">
+        <h3>Mindful Meditation</h3>
+        <p>Slow down, focus on your breath, and create moments of calm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="teachers">
+    <h2>Meet Our Instructors</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Yoga instructor">
+        <h3>Ananya Sharma</h3>
+        <p>Hatha Yoga · Beginner Friendly</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Meditation instructor">
+        <h3>Rahul Mehta</h3>
+        <p>Meditation · Breathwork</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule" id="schedule">
+    <h2>Weekly Class Schedule</h2>
+    <table>
+      <tr>
+        <th>Day</th>
+        <th>Class</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>Hatha Yoga</td>
+        <td>7:00 AM</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>Meditation</td>
+        <td>6:00 PM</td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td>Vinyasa Yoga</td>
+        <td>7:30 AM</td>
+      </tr>
+      <tr>
+        <td>Sunday</td>
+        <td>Relaxation</td>
+        <td>9:00 AM</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="plans">
+    <h2>Membership Plans</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Basic</h3>
+        <p class="price">₹499/month</p>
+        <p>4 classes per month</p>
+        <p>Beginner yoga sessions</p>
+        <a href="#contact" class="btn join">Join Now</a>
+      </div>
+
+      <div class="card">
+        <h3>Premium</h3>
+        <p class="price">₹999/month</p>
+        <p>Unlimited group classes</p>
+        <p>Guided meditation</p>
+        <a href="#contact" class="btn join">Join Now</a>
+      </div>
+
+      <div class="card">
+        <h3>Personal</h3>
+        <p class="price">₹1999/month</p>
+        <p>Personalized yoga sessions</p>
+        <p>Individual guidance</p>
+        <a href="#contact" class="btn join">Join Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="articles">
+    <h2>Wellness Corner</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>5 Benefits of Daily Yoga</h3>
+        <p>Explore how regular movement can support flexibility, balance, and relaxation.</p>
+      </div>
+
+      <div class="card">
+        <h3>Meditation for Beginners</h3>
+        <p>Start with five quiet minutes and gentle attention to your breathing.</p>
+      </div>
+
+      <div class="card">
+        <h3>Creating a Morning Routine</h3>
+        <p>Build a peaceful start to your day with stretching and mindful breathing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Begin Your Wellness Journey</h2>
+    <p>Take a deep breath. Your journey starts today.</p>
+    <p>Email: hello@serenityyoga.example</p>
+    <br>
+    <a href="mailto:hello@serenityyoga.example" class="btn">
+      Contact Us
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2026 Serenity Yoga & Meditation | Find Your Balance 🌿</p>
+  </footer>
+
+</body>
+</html>

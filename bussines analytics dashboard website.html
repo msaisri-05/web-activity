@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Analytics Dashboard</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #172554;
+      color: white;
+      padding: 25px 15px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 14px;
+      margin: 8px 0;
+      border-radius: 8px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Main content */
+    main {
+      padding: 25px;
+      min-width: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #00000008;
+    }
+
+    .card p {
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .card h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .growth {
+      color: #16a34a;
+      font-size: 14px;
+    }
+
+    /* Charts */
+    .charts {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .chart-box {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      min-width: 0;
+    }
+
+    .chart-box h3 {
+      margin-bottom: 20px;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 280px;
+    }
+
+    /* Table */
+    .table-box {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      min-width: 500px;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .status {
+      color: #15803d;
+      background: #dcfce7;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 1000px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .charts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        padding: 15px;
+      }
+
+      .sidebar h2 {
+        margin-bottom: 12px;
+      }
+
+      .sidebar nav {
+        display: flex;
+        gap: 5px;
+        overflow-x: auto;
+      }
+
+      .sidebar a {
+        white-space: nowrap;
+        padding: 10px;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dashboard">
+
+    <aside class="sidebar">
+      <h2>📊 BizAnalytics</h2>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#sales">Sales</a>
+        <a href="#performance">Performance</a>
+        <a href="#activity">Recent Activity</a>
+        <a href="#activity">Reports</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <h1>Dashboard</h1>
+          <p>Welcome back! Here's your business overview.</p>
+        </div>
+        <strong>📅 October 2026</strong>
+      </header>
+
+      <!-- Summary cards -->
+      <section class="cards">
+        <div class="card">
+          <p>Total Revenue</p>
+          <h2>$48,250</h2>
+          <span class="growth">↑ 12.5% this month</span>
+        </div>
+
+        <div class="card">
+          <p>Total Users</p>
+          <h2>8,540</h2>
+          <span class="growth">↑ 8.2% this month</span>
+        </div>
+
+        <div class="card">
+          <p>Total Sales</p>
+          <h2>1,245</h2>
+          <span class="growth">↑ 15.3% this month</span>
+        </div>
+
+        <div class="card" id="performance">
+          <p>Conversion Rate</p>
+          <h2>4.85%</h2>
+          <span class="growth">↑ 2.4% this month</span>
+        </div>
+      </section>
+
+      <!-- Charts -->
+      <section class="charts" id="sales">
+        <div class="chart-box">
+          <h3>Sales Trends</h3>
+          <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-box">
+          <h3>Performance Metrics</h3>
+          <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent activities -->
+      <section class="table-box" id="activity">
+        <h3>Recent Activities</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Activity</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>John Smith</td>
+              <td>New Purchase</td>
+              <td>$250</td>
+              <td><span class="status">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Sarah Lee</td>
+              <td>Subscription</td>
+              <td>$120</td>
+              <td><span class="status">Completed</span></td>
+            </tr>
+            <tr>
+              <td>David Brown</td>
+              <td>New Purchase</td>
+              <td>$450</td>
+              <td><span class="status">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Emily Davis</td>
+              <td>Product Order</td>
+              <td>$180</td>
+              <td><span class="status">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Sales trends chart
+    new Chart(document.getElementById("salesChart"), {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+          label: "Revenue ($)",
+          data: [12000, 19000, 15000, 25000, 22000, 32000],
+          borderColor: "#2563eb",
+          backgroundColor: "rgba(37, 99, 235, 0.12)",
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    // Performance metrics chart
+    new Chart(document.getElementById("performanceChart"), {
+      type: "doughnut",
+      data: {
+        labels: ["Sales", "Users", "Traffic"],
+        datasets: [{
+          data: [45, 30, 25],
+          backgroundColor: ["#2563eb", "#16a34a", "#f59e0b"]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
+</body>
+</html>
